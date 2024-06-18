@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/photo_vine_2"
+    tools:context=".Admin.AdminAddNewProductActivity">
+
+
+    <ImageView
+        android:id="@+id/select_p_img"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/icon_add"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+
+        />
+
+    <EditText
+        android:id="@+id/product_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/select_p_img"
+        android:hint="Name of product"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:padding="20dp"
+        android:background="#9E370707"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:inputType="textMultiLine" />
+    <EditText
+        android:id="@+id/producte_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_name"
+        android:hint="Description of product"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:padding="20dp"
+        android:background="#9E370707"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:inputType="textMultiLine" />
+    <EditText
+        android:id="@+id/producte_prise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/producte_description"
+        android:hint="Prise of product"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:padding="20dp"
+        android:background="#9E370707"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/button_add_p"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/producte_prise"
+
+        android:text="Add"
+        android:textSize="25dp"
+        android:backgroundTint="#611111"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"/>
+
+</RelativeLayout>
