@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -15,10 +15,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Wine_Shop"
         tools:targetApi="31">
+
+        <activity
+            android:name=".Users.ProductListActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".Users.CategorySelectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Users.OrdersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Users.PaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Users.CartActivity"
+            android:exported="false" />
         <activity
             android:name=".SettingsActivity"
             android:exported="false" />
-
         <activity
             android:name=".Users.HomeActivity"
             android:exported="false"
@@ -36,9 +52,9 @@
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
-
         <activity
-            android:name=".Users.MainActivity"
+            android:name=".SplashActivity"
+
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,7 +63,10 @@
             </intent-filter>
         </activity>
 
-
+        <activity
+            android:name=".Users.MainActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

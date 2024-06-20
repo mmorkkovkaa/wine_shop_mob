@@ -8,6 +8,7 @@
     tools:showIn="@layout/app_bar_home"
     android:background="@drawable/photo_vine">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle_menu"
         android:layout_width="match_parent"

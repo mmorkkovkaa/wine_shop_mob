@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,9 +30,11 @@ import com.example.wine_shop.Prevalent.Prevalent;
 import com.example.wine_shop.R;
 import com.example.wine_shop.SettingsActivity;
 import com.example.wine_shop.ViewHolder.ProductViewHolder;
-import com.example.wine_shop.databinding.ActivityHomeBinding;
+//import com.example.wine_shop.databinding.ActivityHomeBinding;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -39,13 +42,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
+import java.util.HashMap;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
-    private ActivityHomeBinding binding;
+
+
 
     private SharedPreferences sharedPreferences;
 
@@ -60,20 +66,22 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+
+
         ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("Menu");
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Корзина", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        FloatingActionButton fab = findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Корзина", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -116,6 +124,42 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 holder.txtProductPrice.setText("Price : " + model.getPrice() + "$");
                 Picasso.get().load(model.getImage()).into(holder.imageView);
 
+                holder.addToCartButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        DatabaseReference cartRef = FirebaseDatabase.getInstance().getReference().child("Cart");
+
+                        HashMap<String, Object> cartMap = new HashMap<>();
+                        cartMap.put("pid", model.getPid());
+                        cartMap.put("pname", model.getPname());
+                        cartMap.put("price", model.getPrice());
+                        cartMap.put("quantity", "1");
+                        cartMap.put("discount", "0");
+
+                        cartRef.child(Prevalent.currentOnlineUser.getPhone())
+                                .child(model.getPid())
+                                .updateChildren(cartMap)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(HomeActivity.this, "Добавлено в корзину", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            Toast.makeText(HomeActivity.this, "Ошибка добавления в корзину", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                    }
+                });
+
+//                holder.addToCartButton.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        model.addToCart(Prevalent.currentOnlineUser.getPhone());
+//                        Toast.makeText(HomeActivity.this, "Добавлено в корзину", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+
             }
 
             @NonNull
@@ -154,10 +198,16 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if(id == R.id.nav_cart){
+            Intent setIntent = new Intent(HomeActivity.this, CartActivity.class);
+            startActivity(setIntent);
 
         } else if(id == R.id.nav_orders){
+            Intent setIntent = new Intent(HomeActivity.this, OrdersActivity.class);
+            startActivity(setIntent);
 
         } else if(id == R.id.nav_categories){
+            Intent setIntent = new Intent(HomeActivity.this, CategorySelectionActivity.class);
+            startActivity(setIntent);
 
         } else if(id == R.id.nav_settings){
             Intent setIntent = new Intent(HomeActivity.this, SettingsActivity.class);

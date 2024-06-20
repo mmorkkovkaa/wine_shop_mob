@@ -1,6 +1,7 @@
 package com.example.wine_shop.ViewHolder;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,7 +14,10 @@ public class ProductViewHolder extends RecyclerView.ViewHolder implements View.O
 {
     public TextView txtProductName, txtProductDescription, txtProductPrice;
     public ImageView imageView;
+
     public ItemClickListner listner;
+
+    public Button addToCartButton;
 
 
     public ProductViewHolder(View itemView)
@@ -25,6 +29,10 @@ public class ProductViewHolder extends RecyclerView.ViewHolder implements View.O
         txtProductName = itemView.findViewById(R.id.product_name);
         txtProductDescription = itemView.findViewById(R.id.product_description);
         txtProductPrice = itemView.findViewById(R.id.product_price);
+        addToCartButton = itemView.findViewById(R.id.add_to_cart_button);
+
+        addToCartButton.setOnClickListener(this);
+
     }
 
     public void setItemClickListner(ItemClickListner listner)

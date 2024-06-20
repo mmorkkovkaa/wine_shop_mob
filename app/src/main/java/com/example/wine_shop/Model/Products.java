@@ -1,5 +1,8 @@
 package com.example.wine_shop.Model;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Products {
 
     private String pname , description, price, image, category, pid, date, time;
@@ -18,6 +21,8 @@ public class Products {
         this.date = date;
         this.time = time;
     }
+
+
 
     public String getPname() {
         return pname;
