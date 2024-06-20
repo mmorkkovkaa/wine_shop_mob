@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/photo_vine_7">
+
+    <TextView
+        android:id="@+id/close_btn"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:text=" exit "
+        android:textSize="25sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+       android:background="#550B0B"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:text="Категории : "
+        android:textSize="50dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"/>
+
+    <!-- Красное вино -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/btn_red_wine"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Красное вино"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"
+            android:textColor="#7A1313"
+            android:backgroundTint="#70FFFFFF"
+            android:padding="10dp"/>
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:src="@drawable/red_wine"
+            android:layout_marginLeft="16dp"/>
+    </LinearLayout>
+
+    <!-- Белое вино -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/btn_white_wine"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Белое вино"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"
+            android:textColor="#FFEB3B"
+            android:backgroundTint="#70FFFFFF"
+            android:padding="10dp"/>
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:src="@drawable/white_wine"
+            android:layout_marginLeft="16dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical">
+    <Button
+        android:id="@+id/btn_elite_wine"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Элитное вино"
+        android:textSize="27sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"
+        android:textColor="#673AB7"
+        android:backgroundTint="#70FFFFFF"
+        android:padding="10dp"/>
+
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:src="@drawable/elite_wine"
+        android:layout_marginLeft="16dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical">
+    <Button
+        android:id="@+id/btn_wine_accessories"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Принадлежности для вина"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/black"
+        android:backgroundTint="#AD4CAF50"
+        android:padding="10dp"/>
+        <ImageView
+            android:layout_width="190dp"
+            android:layout_height="90dp"
+            android:src="@drawable/shtop_icon"
+
+            android:layout_marginLeft="16dp"/>
+
+</LinearLayout>
+</LinearLayout>

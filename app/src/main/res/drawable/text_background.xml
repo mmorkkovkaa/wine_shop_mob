@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#80B22222" /> <!-- Бледный оттенок бордового с прозрачностью -->
+    <corners android:radius="8dp" /> <!-- Закругленные углы -->
+</shape>
